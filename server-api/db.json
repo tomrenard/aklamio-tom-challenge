@@ -1,0 +1,46 @@
+{
+  "companies": [
+    {
+      "id": 1245,
+      "company_name": "Tesla",
+      "budget": 125000,
+      "budget_spent": 62000,
+      "date_of_contract_sign": "2021-01-04"
+    },
+    {
+      "id": 1246,
+      "company_name": "Apple",
+      "budget": 120001,
+      "budget_spent": 32000,
+      "date_of_contract_sign": "2021-03-05"
+    },
+    {
+      "id": 1247,
+      "company_name": "Facebook",
+      "budget": 99998,
+      "budget_spent": 30000,
+      "date_of_contract_sign": "2021-05-01"
+    },
+    {
+      "id": 1248,
+      "company_name": "Twitter",
+      "budget": 158000,
+      "budget_spent": 83000,
+      "date_of_contract_sign": "2021-01-09"
+    },
+    {
+      "id": 1249,
+      "company_name": "N26",
+      "budget": 90000,
+      "budget_spent": 12000,
+      "date_of_contract_sign": "2020-03-11"
+    },
+    {
+      "id": 1250,
+      "company_name": "Philips",
+      "budget": 129000,
+      "budget_spent": 90000,
+      "date_of_contract_sign": "2020-04-12"
+    }
+  ]
+}
