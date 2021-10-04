@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
 const ModalOverlay = styled.div`
   position: fixed;
@@ -52,20 +52,24 @@ const ModalStyles = styled.div`
   form {
     padding: 1rem;
   }
-  label, input {
+  label,
+  input {
     margin-right: 10px;
   }
   .submit {
     border: none;
     cursor: pointer;
     &:hover {
-      background-color: #36A18B;
+      background-color: #36a18b;
       color: white;
     }
   }
+  .alert-message {
+    margin-top: 10px;
+  }
 `;
 
-export default function Modal({company, updateCompanyBudget, onClose}) {
+export default function Modal({ company, updateCompanyBudget, onClose }) {
   const [updatedCompany, setUpdatedCompany] = useState(company);
   const isValid = updatedCompany.budget > updatedCompany.budget_spent;
   const updateCompany = (e) => {
@@ -76,14 +80,16 @@ export default function Modal({company, updateCompanyBudget, onClose}) {
     onClose();
     // UX could be improved by closing the modal if the user clicked outside the box if the value has not been updated.
     updateCompanyBudget(updatedCompany);
-  }
+  };
   return (
     <>
       <ModalOverlay>
         <ModalWrapper>
           <ModalStyles>
             <h2>{updatedCompany.company_name}</h2>
-            <button className="close" onClick={() => onClose()}>X</button>
+            <button className="close" onClick={() => onClose()}>
+              X
+            </button>
             <form onSubmit={updateCompany}>
               <label>Edit budget:</label>
               <input
@@ -91,14 +97,28 @@ export default function Modal({company, updateCompanyBudget, onClose}) {
                 type="number"
                 name="Budget"
                 value={updatedCompany.budget}
-                onChange={(e) => setUpdatedCompany({ ...updatedCompany, budget: parseInt(e.target.value) })}
+                onChange={(e) =>
+                  setUpdatedCompany({
+                    ...updatedCompany,
+                    budget: parseInt(e.target.value),
+                  })
+                }
               />
-              <button className='submit' disabled={!updatedCompany.budget || !isValid}>Submit</button>
-              {isValid ? null : <div className="alert-message" role="alert">Budget should be superior to current budget spent!</div>}
+              <button
+                className="submit"
+                disabled={!updatedCompany.budget || !isValid}
+              >
+                Submit
+              </button>
+              {isValid ? null : (
+                <div className="alert-message" role="alert">
+                  Budget should be superior to current budget spent!
+                </div>
+              )}
             </form>
           </ModalStyles>
         </ModalWrapper>
       </ModalOverlay>
     </>
-  )
+  );
 }
